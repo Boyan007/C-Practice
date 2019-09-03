@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1563645522 source:f:\Ñ++ sarajevo februar 2016\priprema za test\think-cell\main.cpp
+	<iostream>
+	<map>
+	<limits>
+	<vector>
+	<string>
+	<typeinfo>
+

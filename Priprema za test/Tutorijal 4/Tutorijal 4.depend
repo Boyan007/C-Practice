@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1563200062 source:f:\Ñ++ sarajevo februar 2016\priprema za test\tutorijal 4\main.cpp
+	<iostream>
+	<vector>
+	<string>
+	<cstring>
+	<typeinfo>
+

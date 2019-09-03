@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1563114588 source:f:\Ñ++ sarajevo februar 2016\priprema za test\tutorijal 3\main.cpp
+	<iostream>
+	<vector>
+	<deque>
+	<iomanip>
+
