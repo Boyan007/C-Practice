@@ -8,9 +8,9 @@ int main()
 {
 //    const double pi = 4 * std::atan(1);
 
-    std::cout << sizeof(bool);
+    std::cout << sizeof(bool) << std::endl;
 
-    int var;
+    /*int var;
     std::cout << "Unesite broj zadatka: ";
     std::cin >> var;
 
@@ -76,8 +76,18 @@ int main()
             }
 
             std::cout << sum;
-    }
+    }*/
 
+
+    std::cout << "+" << std::setfill('-') << std::setw(10) << "+" << std::setw(11) << "+" << std::setw(11) << "+" << std::endl;
+    std::cout << "|" << std::setfill(' ') << std::setw(8) << "Brojevi" << " |" << std::setw(9) << "Kvadrati" << " |" << std::setw(9) << "Korjeni" << " |" << std::endl;
+    std::cout << "+" << std::setfill('-') << std::setw(10) << "+" << std::setw(11) << "+" << std::setw(11) << "+" << std::endl;
+    std::cout << std::setfill(' ') << std::setprecision(3) << std::fixed;
+
+    for(int i(80); i<= 100; i++){
+        std::cout << "|" << std::setw(8) << i << " |" << std::setw(9) << i*i << " |" << std::setw(9) << std::sqrt(i) << " |" << std::endl;
+    }
+    std::cout << "+" << std::setfill('-') << std::setw(10) << "+" << std::setw(11) << "+" << std::setw(11) << "+" << std::endl;
 
     return 0;
 }
