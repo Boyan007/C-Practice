@@ -1,2 +1,2 @@
 Tehnike Programiranja
-'Nove tehnike.txt'
+Nove_tehnike.txt
