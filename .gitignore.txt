@@ -1,2 +1,1 @@
-C-Practice/Tehnike_Programiranja/
-C-Practice/Nove_tehnike.txt
+Nove_tehnike.txt
