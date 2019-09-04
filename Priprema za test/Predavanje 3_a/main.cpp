@@ -67,6 +67,51 @@ Matrica PomnoziMatrice(Matrica m1, Matrica m2) {
         }
     return m3;
 }*/
+
+typedef std::vector<std::vector<double>> Matrica;
+
+Matrica KreirajMatricu(int redovi,int kolone){
+    return Matrica(redovi, std::vector<double>(kolone));
+}
+
+int BrojRedova(Matrica a){
+    return a.size();
+}
+
+int BrojKolona(Matrica a){
+    return a[0].size();
+}
+
+Matrica UnesiMatricu(int redovi, int kolone){
+    auto m(KreirajMatricu(redovi, kolone));
+    for(int i(0); i<BrojRedova(m); i++){
+        for(int j(0); j<BrojKolona(m); j++){
+            std::cin >> m[i][j];
+        }
+    }
+    return m;
+}
+
+/*void IspisiMatricu(Matrica a){
+    for(int i(0); i<a.size(); i++){
+        for(int j(0); j<a[i].size();j++){
+            std::cout << a[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+}*/
+
+void IspisiMatricu(Matrica a){
+    for(std::vector<double> i: a){
+        for(auto j: i){
+            std::cout << j << " ";
+        }
+        std::cout << std::endl;
+    }
+
+
+}
+
 // Glavni program
 int main() {
     /*int m1, n1;
@@ -108,13 +153,34 @@ int main() {
     std::cin.getline(tekst, sizeof tekst);
     std::cout << "\nBroj: " << broj << "Tekst: " << tekst << std::endl;
 */
-    int broj;
-    char tekst[100];
-    std::cout << "Unesi broj: ";
-    std::cin >> broj >> std::ws;
-    std::cout << "Unesi tekst: ";
-    std::cin.getline(tekst, sizeof tekst);
-    std::cout << "\nBroj: " << broj << "Tekst: " << tekst << std::endl;
+//////    int broj;
+//////    char tekst[100];
+//////    std::cout << "Unesi broj: ";
+//////    std::cin >> broj >> std::ws;
+//////    std::cout << "Unesi tekst: ";
+//////    std::cin.getline(tekst, sizeof tekst);
+//////    std::cout << "\nBroj: " << broj << "Tekst: " << tekst << std::endl;
+    //Matrica a(KreirajMatricu(3, 5));
+//////    auto a = UnesiMatricu(2, 3);
+//////    IspisiMatricu(a);
+
+//    char rec[10], rec1[10];
+//    std::cin.getline(rec, sizeof rec);
+//
+//    std::cout << rec << std::endl;
+//
+//    std::cin.clear();
+//    //std::cin.ignore(10000, '\n');
+//
+//    std::cin.getline(rec1, sizeof rec1);
+//    std::cout << rec1;
+//
+//    char recenica[100];
+//    std::cout << "Unesi neku rečenicu: ";
+//    std::cin >> std::setw(sizeof recenica) >> recenica; // do prvog razmaka
+//    std::cout << "Unesena rečenica glasi: " << recenica;
+
+
 
     return 0;
 }
