@@ -62,7 +62,7 @@ int main()
     Z = 1./Z;
     std::cout << "Paralelna veza ovih elemenata ima impedansu Z_ = (" << Z.real() << ", " << Z.imag() << ").";*/
 
-    int n;
+    /*int n;
     double module, phase;
     const double PI = 4*std::atan(1);
     std::complex<double> Z;
@@ -76,6 +76,63 @@ int main()
     }
     Z = 1./Z;
     std::cout << "Paralelna veza ovih elemenata ima impedansu Z_ = (" << std::abs(Z) << ", " << std::arg(Z)*180/PI << ").";
+    */
 
+    //second try
+
+    //zadatak 2
+
+    /*typedef std::vector<int> Niz;
+
+    Niz n;
+    int i, numb, cnt(0), T(0);
+    bool isPeriod(false);
+    while(std::cin >> i, i >= 0){
+        n.push_back(i);
+        //cnt++;
+        //if(cnt == 1)numb = n[0];
+        if(n[n.size()-1] == n[0] && !isPeriod && n.size()>1){
+                T = n.size()-1;
+                isPeriod = !isPeriod;
+        }
+        if(isPeriod)if(n[n.size()-1] != n[n.size()-1-T]){isPeriod = !isPeriod; T=0;}
+    }
+
+    std::cout << "Period ponavljanja je " << T;*/
+
+    //zadatak 3
+
+    /*int n;
+    double re, im;
+
+    std::cout << "Unesi broj elemenata: ";
+    std::cin >> n;
+
+    std::complex<double> z(0,0), z1;
+
+    while(n-- > 0){
+        std::cin >> z1;
+        z += 1./(std::complex<double>{re, im});
+    }
+
+    z = 1./z;
+
+    std::cout << "Paralelna veza ovih elemenata ima impedansu " << z.real() << " , " << z.imag();*/
+
+    int n;
+    double Mo, phi;
+    std::complex<double> z(0,0);
+
+    std::cout << "Unesite broj elemenata: ";
+    std::cin >> n;
+
+    while(n-- > 0){
+        std:: cin >> Mo >> phi;
+        z += 1./std::polar(Mo, phi*3.14159/180);
+    }
+
+    z = 1./z;
+
+    std:: cout << "Paralelna veza ovih elemenata ima " << std::abs(z) << " , " << std::arg(z)*180/3.14159;
     return 0;
 }
