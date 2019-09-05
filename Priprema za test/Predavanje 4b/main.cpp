@@ -1,9 +1,14 @@
 #include <iostream>
 
-using namespace std;
+template <typename NekiTip>
+
+NekiTip VeciOd(NekiTip x, NekiTip y) {
+    if(x > y) return x;
+    else return y;
+}
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    std::cout << "Hello world!" << std::endl;
     return 0;
 }
