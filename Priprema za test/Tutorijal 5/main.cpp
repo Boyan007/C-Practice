@@ -1,14 +1,16 @@
 #include <iostream>
+#include <>
 #include <algorithm>
 
 //using namespace std;
 
-int kolikoSePojavljuje(int *p1, int *p2){
+/*auto kolikoSePojavljuje(int *p1, int *p2)-> int{
     int *s;
     s = std::min_element(p1, p2, [](int a, int b){return a<b;});
     return std::count_if(p1, p2, [s](int x){return *s == x;});
     //return *s;
 }
+*/
 
 int main()
 {
@@ -43,12 +45,14 @@ int main()
 
     std::cout << char(std::toupper('!')) << std::endl;*/
 
-    int a[]{1, 2, 1, 5, 1, 7, 8, 1, 4}, *p;
+    /*int a[]{1, 2, 1, 5, 1, 7, 8, 1, 4}, *p;
 
     //p = &a[8];
 
     //std::cout << *p;
-    std::cout << kolikoSePojavljuje(&a[0], &a[8]);
+    std::cout << kolikoSePojavljuje(&a[0], &a[8]);*/
+
+    std::cout << Zbir(2, 3);
 
     return 0;
 }
