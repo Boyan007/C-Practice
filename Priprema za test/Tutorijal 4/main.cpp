@@ -51,8 +51,8 @@ void UnosBroja(std::string s1, std::string s2, NekiTip &n){
 }*/
 
 
-/*template <typename Neki>
-
+template <typename Neki>
+/*
 void UnesiVektor(std::vector<Neki> &v1){
     Neki broj;
     while(std::cin >> broj, broj != -1) v1.push_back(broj);
@@ -83,21 +83,24 @@ std::vector<Neki> Presjek(const std::vector<Neki>v1, const std::vector<Neki>v2){
 
 */
 
-/*void UnosBroja(std::string s1, std::string s2, Neki &prvi_broj){
+void UnosBroja(std::string s1, std::string s2, Neki &prvi_broj){
 
     std::string b;
     std::cout << s1;
     std::cin >> prvi_broj;
     std::getline(std::cin, b);
 
-    while(b != ""){
+    while(b != "" || !(std::cin)){
         std::cout << s2;
-
+        if(!(std::cin)){
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+        }
         std::cin >> prvi_broj;
         std::getline(std::cin, b);
-        std::cout << b;
+        //std::cout << b;
     }
-}*/
+}
 
 
 int main()
@@ -207,13 +210,13 @@ int main()
 
     std::cout << "Min: " << a << std::endl << "Max: " << b;*/
 
-    /*zadatak 4
+//    zadatak 4
     int n;
     double x;
     UnosBroja("Unesi prvi broj: ", "Neispravan unos!\n", n);
     UnosBroja("Unesi prvi broj: ", "Neispravan unos!\n", x);
 
-    std::cout << "\nx^n =  " << std::pow(x, n);*/
+    std::cout << "\nx^n =  " << std::pow(x, n);
 
     /*zadatak 5
     //std::vector<int> v1, v2;
