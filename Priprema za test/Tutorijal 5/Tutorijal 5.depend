@@ -1,9 +1,7 @@
 # depslib dependency file v1.0
-1563301776 source:f:\Ñ++ sarajevo februar 2016\priprema za test\tutorijal 5\main.cpp
+1567884854 source:f:\Ñ++ sarajevo februar 2016\c-practice\priprema za test\tutorijal 5\main.cpp
 	<iostream>
 	<algorithm>
-
-1567771402 source:f:\Ñ++ sarajevo februar 2016\c-practice\priprema za test\tutorijal 5\main.cpp
-	<iostream>
-	<algorithm>
+	<deque>
+	<vector>
 
