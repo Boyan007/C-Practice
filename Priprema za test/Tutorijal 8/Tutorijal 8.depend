@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1568154666 source:f:\Ñ++ sarajevo februar 2016\c-practice\priprema za test\tutorijal 8\main.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	<vector>
+	<algorithm>
+	<memory>
+	<map>
+
