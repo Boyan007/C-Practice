@@ -132,8 +132,8 @@ int main()
 //        cerr<<"Caught: "<<err.what()<<endl;
 //        cerr<<"Type: "<<typeid(err).name()<<endl;
     }*/
-    catch(std::exception &e){
-        std::cout<<"Caught: "<<e.what()<<std::endl;
+    catch(std::exception &e){//moze i std::domain_error e
+        std::cout << e.what() << std::endl;
     }
 
     std::cout << BrojSekundiIzmedju(vrijeme1, vrijeme2);
