@@ -79,20 +79,10 @@ void Sat::PomjeriZa(int pomak){
 
 void Sat::Sljedeci(){
     PomjeriZa(1);
-
-//    this->sekunde += 1;
-//    if(sekunde == 60){ sekunde = 0; minute++;}
-//    if(minute == 60){minute = 0; sati++;}
-//    if(sati == 24) sati = 0;
 }
 
 void Sat::Prethodni(){
     PomjeriZa(-1);
-
-//    this->sekunde -= 1;
-//    if(sekunde == -1){ sekunde += 60; minute--;}
-//    if(minute == -1){minute += 60; sati--;}
-//    if(sati == -1) sati += 24;
 }
 
 int Sat::DajSate() const {return Sat::sati;}
