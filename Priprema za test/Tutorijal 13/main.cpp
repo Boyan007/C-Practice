@@ -3,6 +3,7 @@
 #include <cmath>
 #include <memory>
 #include <algorithm>
+#include <string.h>
 //using namespace std;
 
 /*zadatak 1
@@ -120,6 +121,7 @@ class Student {
     std::string ime;
     int indeks;
 public:
+    Student(): ime(""), indeks(0){}
     Student(std::string ime, int ind) : ime(ime), indeks(ind) {}
     std::string DajIme() const { return ime; }
     int DajIndeks() const { return indeks; }
@@ -141,7 +143,8 @@ public:
 class StudentskaSluzba{
     int broj_studenata;
     const int kapacitet;
-    Student **studenti;
+    std::unique_ptr<Student*[]> studenti;
+//    Student **studenti;
 public:
     StudentskaSluzba(int kapacitet): kapacitet(kapacitet), broj_studenata(0), studenti(new Student*[kapacitet]){}
     ~StudentskaSluzba();
@@ -153,8 +156,8 @@ public:
     void IspisiPoIndexu()const;
 };
 StudentskaSluzba::~StudentskaSluzba(){
-    for(int i(0); i<broj_studenata; i++) delete studenti[i];
-    delete[] studenti;
+//    for(int i(0); i<broj_studenata; i++) delete studenti[i];
+//    delete[] studenti;
 }
 void StudentskaSluzba::UpisStudenta(std::string ime_i_prezime, int broj_indexa){
     if(broj_studenata>=kapacitet)throw std::range_error("Maksimalan broj studenata dostignut");
@@ -165,22 +168,22 @@ void StudentskaSluzba::UpisDiplomiranogStudenta(std::string ime_i_prezime, int b
     studenti[broj_studenata++] = new DiplomiraniStudent(ime_i_prezime, broj_indexa, godina_diplomiranja);
 }
 void StudentskaSluzba::IspisiPoAbecedi()const{
-    std::sort(studenti, studenti+broj_studenata, [](Student *a, Student *b){return a->DajIme() < b->DajIme();});
+    std::sort(&studenti[0], &studenti[broj_studenata],[](Student *a, Student *b){return (a->DajIme() < b->DajIme());});
     for(int i(0); i<broj_studenata; i++)studenti[i]->Ispisi();
 }
 void StudentskaSluzba::IspisiPoIndexu()const{
-    std::sort(studenti, studenti+broj_studenata, [](Student *a, Student *b){return a->DajIndeks() < b->DajIndeks();});
+    std::sort(&studenti[0], &studenti[broj_studenata], [](Student *a, Student *b){return a->DajIndeks() < b->DajIndeks();});
     for(int i(0); i<broj_studenata; i++)studenti[i]->Ispisi();
 }
 int main()
 {
-    StudentskaSluzba s(3);
-    s.UpisStudenta("Ivan Ivanovic", 1238);
-    s.UpisDiplomiranogStudenta("Tomo Tomovic", 1236, 2015);
-    s.UpisStudenta("Pero Perovic", 1335);
-
-    s.IspisiPoAbecedi();
-    s.IspisiPoIndexu();
+//    StudentskaSluzba s(3);
+//    s.UpisStudenta("Ivan Ivanovic", 1238);
+//    s.UpisDiplomiranogStudenta("Tomo Tomovic", 1236, 2015);
+//    s.UpisStudenta("Pero Perovic", 1335);
+//
+//    s.IspisiPoAbecedi();
+//    s.IspisiPoIndexu();
     //s = 6; // provjeriti sta bi bilo za definisano kopiranje i dodjelu
 
     /*zadatak 1
@@ -192,6 +195,14 @@ int main()
 
     likovi.IspisiKolekciju();*/
 
-
+    Student s1("Pero Peric", 123), s2("Tomo Tomic", 234);
+    StudentskaSluzba P(2);
+    P.UpisStudenta("Tomo Tomic", 234);
+    P.UpisStudenta("Pero Peric", 123);
+    P.IspisiPoAbecedi();
+//    std::string s1("Pero Peric"), s2("Tomo Tomic");
+//    std::string s3;
+//    s3 = s1 + s2;
+//    std::cout << s1.compare(s2);
     return 0;
 }

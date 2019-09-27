@@ -1,6 +1,9 @@
 #include <iostream>
 #include <cmath>
 #include <set>
+#include <vector>
+#include <algorithm>
+#include <functional>
 //using namespace std;
 
 /*zadatak 1
@@ -192,6 +195,133 @@ std::set<Tip> operator *(const std::set<Tip>&a, const std::set<Tip>&b){
     for(Tip x: c)d.erase(x);
     return d;
 }*/
+
+/*zadatak 4
+enum Dani{Ponedjeljak, Utorak, Srijeda, Cetvrtak, Petak, Subota, Nedjelja};
+
+std::ostream &operator <<(std::ostream &out, const Dani d){
+    std::string nazivi[7]{"Ponedjeljak", "Utorak", "Srijeda", "Cetvrtak", "Petak", "Subota", "Nedjelja"};
+    out << nazivi[d%7];
+    return out;
+}
+Dani &operator ++(Dani &d){
+    return d = Dani((int(d)+1)%7);
+}
+
+Dani operator ++(Dani &d, int){
+    Dani pomocni(d);
+    d = Dani(int(d)+1);
+    return pomocni;
+}*/
+/*zadatak 5
+class Funkcija: public std::binary_function<int, int, int>{
+public:
+    int operator()(int broj, int deset)const{
+        int obratni(0);
+        while(broj>0){obratni*=deset; obratni += broj%deset; broj/=deset;}
+        return obratni;
+    }
+};*/
+/*zadatak 6*/
+class Mjere{
+    int jard, stopa, inc;
+public:
+    Mjere(int jardi = 0, int stope = 0, int inci = 0): jard(jardi), stopa(stope), inc(inci){
+        UnesiMjere(jard, stopa, inc);
+    }
+
+    void UnesiMjere(int jardi, int stope, int inci);
+    void Koriguj();
+
+    void Ispisi()const{std::cout << "Jardi: " << jard << " Stope: " << stopa << " Inci: " << inc;}
+
+    int DajJardi()const{return jard;}
+    int DajStope()const{return stopa;}
+    int DajInce()const{return inc;}
+
+    double DajMetre()const {return DajJardi()*0.9144 + DajStope()*0.3084 + DajInce()*0.0254;}
+
+    Mjere(const Mjere &m){
+        jard = m.jard; stopa = m.stopa; inc = m.inc;
+    }
+
+    Mjere &operator +=(const Mjere &m1);
+
+    friend Mjere operator*(double a, const Mjere &m);
+    friend Mjere operator*(const Mjere &m, double a);
+
+    friend Mjere &operator ++(Mjere &m);//OVO POSTFIKS???
+    friend Mjere operator++(Mjere &m, int);
+
+    friend Mjere operator +(const Mjere &m1, const Mjere &m2);
+
+    friend double operator/(const Mjere m1, const Mjere m2);
+    friend std::ostream &operator <<(std::ostream &out, const Mjere &m);
+
+    //friend operator/(const Mjere m1, const Mjere m2);
+
+};
+Mjere operator*(double a, const Mjere &m){
+        return {m.jard*a, m.stopa*a, m.inc*a};;
+}
+Mjere operator*(const Mjere &m, double a){
+    return a*m;
+}
+
+Mjere &operator++(Mjere &m){
+    m.inc++;
+    m.Koriguj();
+    return m;
+}
+
+Mjere operator++(Mjere &m, int){
+    Mjere pomocni(m);
+    m.inc++;
+    m.Koriguj();
+    return pomocni;
+}
+
+void Mjere::Koriguj(){
+     while(inc>11 || stopa> 2){
+        if(inc > 11){
+            stopa++;
+            inc -= 12;
+        }
+        if(stopa > 2){
+            stopa -= 3;
+            jard++;
+        }
+    }
+}
+Mjere operator +(const Mjere &m1, const Mjere &m2){
+    Mjere m3(0,0,0);
+
+    m3.UnesiMjere(m1.jard + m2.jard, m1.stopa + m2.stopa, m1.inc + m2.inc);
+
+    return m3;
+}
+
+Mjere &Mjere::operator +=(const Mjere &m1){
+    UnesiMjere(jard += m1.jard, stopa += m1.stopa, inc += m1.inc);
+    return *this;
+}
+
+
+void Mjere::UnesiMjere(int jardi, int stope, int inci){
+    this->jard = jardi;
+    this->stopa = stope;
+    this->inc = inci;
+    Koriguj();
+}
+
+double operator/(const Mjere m1, const Mjere m2){
+    return m1.DajMetre()/m2.DajMetre();
+}
+std::ostream &operator <<(std::ostream &out, const Mjere &m){
+    out << m.DajJardi() << " yd " << m.DajStope() << " ft " << m.DajInce() << " in" << std::endl;
+    return out;
+}
+
 int main()
 {
     /*zadatak 1
@@ -209,6 +339,30 @@ int main()
     /*zadatak 3
     std::set<int> a{1,2,3,6,5,4}, b{9,8,7,4,5,6};
     std::cout << a * b;*/
+
+    /*zadatak 4
+
+    for(Dani d = Ponedjeljak; d <= Nedjelja; d++) std::cout << d << std::endl;
+
+    Dani d(Petak);
+    d = Dani(7);
+    d++;
+    std::cout << d;*/
+
+    /*zadatak 5
+
+    std::vector<int>v{123, 4567, 78, 345678};
+    Funkcija f;
+//    std::transform(v.begin(), v.end(), v.begin(), std::bind2nd(f, 10));
+    std::transform(v.begin(), v.end(), v.begin(), std::bind(f, std::placeholders::_1, 10));
+
+    for(int c: v)std::cout << c << std::endl;
+*/
+    /*zadatak 6
+    Mjere m1(0, 2, 12), m3(3*m1);
+    //m1 += m2;
+
+    std::cout << m3;*/
 
     return 0;
 }
