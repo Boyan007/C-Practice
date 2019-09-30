@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1569876597 source:f:\Ñ++ sarajevo februar 2016\c-practice\priprema za test\ispiti\tp_2015_zadaca_1\main.cpp
+	<iostream>
+	<vector>
+	<cmath>
+	<string>
+	<string.h>
+

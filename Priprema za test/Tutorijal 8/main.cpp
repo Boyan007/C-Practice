@@ -13,7 +13,7 @@ struct Cvor{
     Tip element;
     Cvor* veza;
 };*/
-/* zadatak 4
+/* zadatak 4 */
 std::string ZamijeniPremaRjecniku(std::string s, std::map<std::string, std::string> dict){
     int pocetak, kraj(0), i(0);
     std::string rijec;
@@ -53,7 +53,7 @@ std::string ZamijeniPremaRjecniku(std::string s, std::map<std::string, std::stri
         i++;
     }
     return s;
-}*/
+}
 
 /*zadatak 2
 const int BrojPredmeta(8);
