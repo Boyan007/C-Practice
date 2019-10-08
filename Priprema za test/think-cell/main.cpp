@@ -69,7 +69,7 @@ int main()
 
     //for(int i(0); i<3; i++)A[i].Ispisi();// << "\tSecond: " << p->second;
     //A.Ispisi();
-    std::map<int, char> m_map;
+    /*std::map<int, char> m_map;
 
     m_map.insert(m_map.end(), std::make_pair(0, 'A'));
     m_map.insert(m_map.end(), std::make_pair(1, 'A'));
@@ -95,7 +95,7 @@ int main()
             if(k->second != val)k->second = val;
             k++;
         }
-    }
+    }*/
 
 //I am not certain did I understand the exercise correctly
 //I assume that in the m_map, every first member is smaller or bigger by 1, than the next or previous
@@ -125,11 +125,13 @@ int main()
         m_map[i-1] = val;
     }*/
 
-    for(auto it = m_map.begin(); it != m_map.end(); it++){
+    /*for(auto it = m_map.begin(); it != m_map.end(); it++){
 
         std::cout << "Key: " << it->first << " Value: " << it->second << std::endl;
 
-    }
+    }*/
+
+    interval_map<int, int> a(2);
 
     return 0;
 }

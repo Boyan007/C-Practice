@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1570484344 source:f:\Ñ++ sarajevo februar 2016\c-practice\priprema za test\ono static mjesto\main.cpp
+	<iostream>
+	"Another.h"
+
+1570484584 f:\Ñ++ sarajevo februar 2016\c-practice\priprema za test\ono static mjesto\another.h
+
+1570485727 source:f:\Ñ++ sarajevo februar 2016\c-practice\priprema za test\ono static mjesto\another.cpp
+	<iostream>
+

@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1570378217 source:f:\Ñ++ sarajevo februar 2016\c-practice\priprema za test\heap vjezbati\main.cpp
+	<iostream>
+	<queue>
+	<memory>
+
+1570280425 f:\Ñ++ sarajevo februar 2016\c-practice\priprema za test\heap vjezbati\mycalc.h
+	<cmath>
+
