@@ -43,7 +43,7 @@ class Vektor3d {
     //void SaberiSa(const Vektor3d &v) { x += v.x; y += v.y; z += v.z; }
     void SaberiSa(const Vektor3d &v) { xyz[0] += v.xyz[0]; xyz[1] += v.xyz[1]; xyz[2] += v.xyz[2]; }
 };*/
-
+/* zadatak 3
 class Sat{
     int sati, minute, sekunde;
 
@@ -93,6 +93,46 @@ void Sat::Ispisi() const {std::cout << sati << ":" << minute << ":" << sekunde <
 
 int BrojSekundiIzmedju(const Sat &s1, const Sat &s2){
     return (s1.sati*3600 + s1.minute*60 + s1.sekunde)-(s2.sati*3600 + s2.minute*60 +s2.sekunde);
+}*/
+
+/*zadatak 4*/
+class Sat{
+    int sekunde;
+public:
+    void Postavi(int sati, int minute, int sekunde);
+    void Sljedeci(){PomjeriZa(1);};
+    void Prethodni(){PomjeriZa(-1);};
+    void PomjeriZa(int pomak);
+    //void Svedi(){while(sekunde<0)sekunde += 86400;while(sekunde>86399)sekunde -= 86400;}
+    int DajSate() const;
+    int DajMinute() const;
+    int DajSekunde() const;
+    void Ispisi() const;
+};
+void Sat::Postavi(int sati, int minute, int sekunde){
+    Sat::sekunde = sati*3600 + minute*60 + sekunde;
+}
+
+void Sat::PomjeriZa(int pomak){
+    sekunde += pomak;
+}
+
+int Sat::DajSate()const{
+    //Sat::Svedi();
+    return (sekunde/3600)%24;
+}
+
+int Sat::DajMinute()const{
+    //Svedi();
+    return (sekunde%3600)/60;
+}
+
+int Sat::DajSekunde()const{
+    return (sekunde%3600)%60;
+}
+
+void Sat::Ispisi() const{
+    std::cout << "(hh:mm:ss) = (" << DajSate() << ":" << DajMinute() << ":" << DajSekunde() << ")" << std::endl;
 }
 
 int main()
@@ -111,21 +151,38 @@ int main()
     v.PostaviZ(4);
     v.Ispisi();*/
 
-    Sat vrijeme1, vrijeme2;
+ /*   Sat vrijeme1, vrijeme2;
     try{
         vrijeme1.Postavi(17, 0, 0);
         vrijeme2.Postavi(16, 0, 0);
     }
-    /*catch(std::domain_error &err){
+    catch(std::domain_error &err){
         std::cout<<"Caught: "<<err.what()<<std::endl;
         std::cout<<"Type: "<<typeid(err).name()<<std::endl;
 //        cerr<<"Caught: "<<err.what()<<endl;
 //        cerr<<"Type: "<<typeid(err).name()<<endl;
     }*/
-    catch(std::exception &e){//moze i std::domain_error e
+    /*catch(std::exception &e){//moze i std::domain_error e
         std::cout << e.what() << std::endl;
     }
 
-    std::cout << BrojSekundiIzmedju(vrijeme1, vrijeme2);
+    std::cout << BrojSekundiIzmedju(vrijeme1, vrijeme2);*/
+
+    Sat vrijeme1, vrijeme2;
+
+    vrijeme1.Postavi(8, 55, 14);
+    vrijeme1.PomjeriZa(15*3600+4*60+45);
+
+    vrijeme1.Ispisi();
+
+    vrijeme1.Sljedeci();
+    vrijeme1.Sljedeci();
+
+    vrijeme1.Ispisi();
+
+    vrijeme1.Prethodni();
+
+    vrijeme1.Ispisi();
+
     return 0;
 }

@@ -3,6 +3,8 @@
 #include <iomanip>
 #include <algorithm>
 #include <stdexcept>
+#include <vector>
+
 using namespace std;
 class Datum {
     int dan, mjesec, godina;
@@ -30,7 +32,7 @@ class Razred {
     int broj_evidentiranih;
     Ucenik **ucenici;
     static bool BoljiProsjek(const Ucenik *u1, const Ucenik *u2) {
-    return u1->DajProsjek() > u2->DajProsjek();}
+        return u1->DajProsjek() > u2->DajProsjek();}
 public:
     explicit Razred(int broj_ucenika) : kapacitet(broj_ucenika),
     broj_evidentiranih(0), ucenici(new Ucenik*[broj_ucenika]) {}
@@ -45,7 +47,7 @@ public:
 };
 
 int main() {
-    try {
+    /*try {
         int broj_ucenika;
         std::cout << "Koliko ima ucenika: ";
         std::cin >> broj_ucenika;
@@ -59,7 +61,14 @@ int main() {
     }
     catch(...) {
         std::cout << "Problemi sa memorijom!\n";
-    }
+    }*/
+
+//    std::cout << sizeof(Test*);
+
+    //vector<int>v1{1,2,3,4,5}, v2;
+
+    //std::cout << sizeof(v1) << "\n" << sizeof(v2);
+
     return 0;
 }
 Datum::Datum(int d, int m, int g) {
